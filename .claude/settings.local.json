@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python engram.py:*)",
+      "Bash(python:*)",
+      "Bash(git -C \"C:/Users/I820965/dev/aether\" remote -v)",
+      "Bash(git -C \"C:/Users/I820965/dev/aether\" status)",
+      "Bash(git -C \"C:/Users/I820965/dev/aether\" log --oneline -5)",
+      "Bash(git -C \"C:/Users/I820965/dev/aether\" diff kg.py stamper.py)",
+      "Bash(git -C:*)",
+      "Bash(git -C \"C:/Users/I820965/dev/aether\" remote set-url:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitialize aether-egma with engram spec and documentation\n\nContents:\n- ENGRAM_FEATURE_BRICK_SPEC.md - Feature brick specification\n- AETHER_ENGRAM_PROJECT_OVERVIEW.md - Project overview\n- claude-code-diary-2026-03-26-2307.md - Session diary\n- deferred-topics.md - Future work tracker\n- aether-engram-test-suite-001.md - Test suite documentation\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}
