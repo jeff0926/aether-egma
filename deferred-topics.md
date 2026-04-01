@@ -354,6 +354,24 @@ Master tracker for all ideas, progress, and status.
 
 ---
 
+### 10. Multi-User Engram Isolation
+- **Status:** `DEFERRED`
+- **Source:** Session 2026-03-27 (architecture discussion)
+- **Description:** Isolate engram working memory per user when multiple users interact with the same capsule
+- **Rationale:** v1 stores single `engram.jsonld` per capsule — User B would load User A's memory and overwrite it on commit
+- **Current Limitation:** Single-tenant design assumes one user per capsule instance
+- **Dependencies:** User/session identity mechanism
+- **Implementation Notes:**
+  - **Option A — Per-user engrams:** `engram.{user_id}.jsonld`
+  - **Option B — Session scoping:** Add `engram:user_id` or `engram:session_scope` field, filter on load
+  - **Option C — Ephemeral mode:** Config flag to skip persistence, treat every session as cold start
+  - **Option D — Capsule instances:** Stamp per-user capsule copies (storage overhead)
+  - Consider: shared vs private nodes (some memory should be global)
+- **Effort Estimate:** Medium
+- **Priority:** High (required for multi-user deployments)
+
+---
+
 ## Ideas Backlog
 
 | Idea | Source | Notes |
@@ -400,5 +418,5 @@ aether refine <capsule> [--n N] [--auto-queue]
 
 ---
 
-*Rev 16 — 2026-03-26*
-*Previous: Rev 15 (2026-03-20)*
+*Rev 17 — 2026-03-27*
+*Previous: Rev 16 (2026-03-26)*
