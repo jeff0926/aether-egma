@@ -1,10 +1,19 @@
 # Claude Code Diary Entry
-**Date:** 2026-03-26 23:07
+**Date:** 2026-03-26 23:07 (Updated: 2026-03-27 10:45)
 **Session:** Engram Feature Brick Implementation
 **Author:** Claude Opus 4.5
 **Repositories:**
-- Primary: https://github.com/jeff0926/aether.git (origin)
-- Mirror: https://github.com/jeff0926/aether-egma.git (egma)
+- **aether** (code): https://github.com/jeff0926/aether.git
+- **aether-egma** (docs/specs): https://github.com/jeff0926/aether-egma.git
+
+---
+
+## Repository Structure
+
+| Repo | Purpose | Contents |
+|------|---------|----------|
+| `aether/` | Code | `engram.py`, `kg.py`, `stamper.py`, `tests/test_engram.py`, all core `.py` files |
+| `aether-egma/` | Docs & Specs | `ENGRAM_FEATURE_BRICK_SPEC.md`, `AETHER_ENGRAM_PROJECT_OVERVIEW.md`, diary, deferred-topics, test-suite docs |
 
 ---
 
@@ -197,13 +206,31 @@ python -m pytest tests/ -v
 
 ## Git Status
 
-**Commit:** `1915c4f` (on origin), `83ef960` (on egma - pre-rebase)
+### aether (code repo)
+**Latest Commit:** `8dc1616`
 **Branch:** main
-**Message:** "Add engram.py - Subgraph Persistence / Working Memory layer"
+**Recent Commits:**
+- `8dc1616` - Remove engram session docs (moved to aether-egma repo)
+- `ca53171` - Add test suite documentation
+- `3804234` - Add deferred-topics.md
+- `471ef39` - Add diary entry
+- `1915c4f` - Add engram.py - Subgraph Persistence / Working Memory layer
 
-**Pushed to:**
-- `origin` (https://github.com/jeff0926/aether.git)
-- `egma` (https://github.com/jeff0926/aether-egma.git)
+### aether-egma (docs repo)
+**Latest Commit:** `a6451e5`
+**Branch:** main
+**Contents:** Specs + documentation (initialized from local folder)
+
+### Test Suite Status
+**Last Run:** 2026-03-27 10:45
+**Result:** 49 passed, 12 warnings, 0 failed (4.51s)
+
+| Test File | Tests | Status |
+|-----------|-------|--------|
+| `test_aec_standalone.py` | 10 | ✓ |
+| `test_dai_pulse.py` | 13 | ✓ |
+| `test_engram.py` | 14 | ✓ |
+| `test_exhaustive.py` | 12 | ✓ |
 
 ---
 
@@ -231,18 +258,29 @@ The implementation follows `ENGRAM_FEATURE_BRICK_SPEC.md` located in `C:\Users\I
 ## Quick Start for New LLM
 
 ```bash
-# Navigate to project
+# Two repos to know:
+# 1. aether-egma (C:\Users\I820965\dev\aether-egma) - docs, specs, diary
+# 2. aether (C:\Users\I820965\dev\aether) - all code
+
+# Navigate to code project
 cd C:\Users\I820965\dev\aether
 
 # Verify tests pass
-python engram.py
-python -m pytest tests/test_engram.py -v
+python engram.py                        # 14 inline self-tests
+python -m pytest tests/ -v              # Full suite (49 tests)
 
-# Key files to read
-# 1. engram.py - The new module
-# 2. kg.py - Modified for touch_node() and new fields
-# 3. stamper.py - Modified for OPTIONAL_CAPSULE_FILES
-# 4. ENGRAM_FEATURE_BRICK_SPEC.md (in aether-egma dir) - The spec
+# Key files to read:
+# CODE (in aether/):
+#   - engram.py - The new module (8 public API functions)
+#   - kg.py - Modified for touch_node() and new fields
+#   - stamper.py - Modified for OPTIONAL_CAPSULE_FILES
+#   - tests/test_engram.py - 14 test cases
+#
+# DOCS (in aether-egma/):
+#   - ENGRAM_FEATURE_BRICK_SPEC.md - The spec
+#   - AETHER_ENGRAM_PROJECT_OVERVIEW.md - Project overview
+#   - deferred-topics.md - Future work tracker
+#   - aether-engram-test-suite-001.md - Test documentation
 
 # Usage example
 import engram
@@ -261,4 +299,21 @@ engram.commit_session("capsule-id", "path/to/capsule", kg_data, ["node:1", "node
 
 ---
 
-*End of diary entry*
+## Session Log
+
+| Time | Action |
+|------|--------|
+| 23:07 | Started session, read spec |
+| 23:15 | Implemented engram.py (8 functions) |
+| 23:20 | Modified kg.py (touch_node + new fields) |
+| 23:22 | Modified stamper.py (OPTIONAL_CAPSULE_FILES) |
+| 23:25 | Created tests/test_engram.py (14 tests) |
+| 23:30 | All self-tests passing |
+| 23:35 | Pushed to both repos |
+| 23:40 | Created diary, deferred-topics, test-suite docs |
+| 10:40 | Reorganized repos (code in aether, docs in aether-egma) |
+| 10:45 | Final test run: 49 passed |
+
+---
+
+*End of diary entry — Updated 2026-03-27 10:45*
